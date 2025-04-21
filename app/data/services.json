@@ -1,0 +1,51 @@
+[
+    {
+      "icon": "Globe",
+      "title": "Website Development",
+      "description": "Custom, responsive websites designed to convert visitors into customers.",
+      "link": "/services/website-development"
+    },
+    {
+      "icon": "Instagram",
+      "title": "Social Media Marketing",
+      "description": "Strategic social media campaigns to build your brand and engage your audience.",
+      "link": "/services/social-media-marketing"
+    },
+    {
+      "icon": "PenTool",
+      "title": "Graphic Design",
+      "description": "Eye-catching visuals that communicate your brand message effectively.",
+      "link": "/services/graphic-design"
+    },
+    {
+      "icon": "BarChart",
+      "title": "Digital Marketing",
+      "description": "SEO, PPC, and content marketing strategies to drive qualified traffic.",
+      "link": "/services/digital-marketing"
+    },
+    {
+      "icon": "Mail",
+      "title": "Email Marketing",
+      "description": "Targeted email campaigns that nurture leads and drive conversions.",
+      "link": "/services/email-marketing"
+    },
+    {
+      "icon": "MessageSquare",
+      "title": "SMS Marketing",
+      "description": "Direct and effective SMS campaigns with high open and response rates.",
+      "link": "/services/sms-marketing"
+    },
+    {
+      "icon": "Users",
+      "title": "Lead Generation",
+      "description": "Strategies to attract and convert high-quality leads for your business.",
+      "link": "/services/lead-generation"
+    },
+    {
+      "icon": "Lightbulb",
+      "title": "Business Strategy",
+      "description": "Expert consultation to help you develop and implement effective business strategies.",
+      "link": "/services/business-strategy"
+    }
+  ]
+  
