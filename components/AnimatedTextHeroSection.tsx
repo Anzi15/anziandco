@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Pacifico } from 'next/font/google'
 import Image from "next/image"
 import { cn } from "@/lib/utils"
+import { GradientButton } from "./ui/GradeintButton"
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -225,7 +226,7 @@ export default function AnimatedTextHeroSection({
 
           <motion.div custom={2} variants={fadeUpVariants} initial="hidden" animate="visible">
             <p className="text-base sm:text-lg md:text-xl text-black/60 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4 py-4">
-              Helped our clients raise over $2M in revenue in the last year, with out innovative solutions.
+              Helped our clients raise over $2M in revenue in the last year, with our innovative solutions.
             </p>
 
             <motion.div
@@ -256,7 +257,9 @@ export default function AnimatedTextHeroSection({
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 group-hover:from-indigo-500 group-hover:to-violet-500 transition-colors duration-300" />
                 
                 {/* Button content */}
-                <div className="relative px-8 py-3 flex items-center justify-center gap-2 text-white font-medium">
+                {/* <div className="relative px-8 py-3 flex items-center justify-center gap-2 text-white font-medium"> */}
+                <GradientButton className="w-full">
+
                   <span className="group-hover:animate-pulse-subtle">Get Started</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -269,11 +272,12 @@ export default function AnimatedTextHeroSection({
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     className="group-hover:translate-x-1 transition-transform duration-300"
-                  >
+                    >
                     <path d="M5 12h14"></path>
                     <path d="m12 5 7 7-7 7"></path>
                   </svg>
-                </div>
+                    </GradientButton>
+                {/* </div> */}
                 
                 {/* Shimmer effect */}
                 <div 

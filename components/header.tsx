@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { GradientButton } from "@/components/ui/GradeintButton"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
@@ -85,7 +85,7 @@ export default function Header() {
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Button>Get a Free Consultation</Button>
+          <GradientButton>Get a Free Consultation</GradientButton>
         </div>
 
         {/* Mobile menu */}
@@ -138,7 +138,9 @@ export default function Header() {
                     ))}
                   </div>
                   <div className="py-6">
-                    <Button className="w-full">Get a Free Consultation</Button>
+                    <GradientButton>
+                    Get a Free Consultation
+                    </GradientButton>
                   </div>
                 </div>
               </div>

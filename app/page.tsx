@@ -1,10 +1,14 @@
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent } from "@/components/ui/card"
-import { TestimonialSliders } from "@/components/TestimonialSliders"
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent } from "@/components/ui/card";
+
+import { FiHeart, FiStar, FiSmile, FiSun } from "react-icons/fi"
+import { LuSparkles, LuCloud } from "react-icons/lu"
+import { BsFlower1, BsStars } from "react-icons/bs"
+
 import services from "./data/services.json";
 import {
   Globe,
@@ -21,12 +25,17 @@ import {
   Facebook,
   Phone,
   MapPin,
-} from "lucide-react"
-import TiltWrapper from "@/components/TiltWrapper"
-import AnimatedTextHeroSection from "@/components/AnimatedTextHeroSection"
-import WhatWeDo from "@/components/WhatWeDo"
-import ScrollingStarSection from "@/components/WorldClassDeveloper"
-import InfoTabs from "@/components/InfoTabs"
+} from "lucide-react";
+import TiltWrapper from "@/components/TiltWrapper";
+import AnimatedTextHeroSection from "@/components/AnimatedTextHeroSection";
+import WhatWeDo from "@/components/WhatWeDo";
+import ScrollingStarSection from "@/components/WorldClassDeveloper";
+import InfoTabs from "@/components/InfoTabs";
+import VideoTestimonial from "@/components/VideoTestimonial";
+import BrandsWeWorkWith from "@/components/BrandsWeWorkWith";
+import { FeaturesSectionWithHoverEffects } from "@/components/Features";
+import { GradientButton } from "@/components/ui/GradeintButton";
+import ScrollVelocity from "@/components/ui/MovingTextScript";
 
 export default function Home() {
   const iconsMap = {
@@ -117,12 +126,19 @@ export default function Home() {
         </div>
       </section> */}
 
-<AnimatedTextHeroSection />
+      <AnimatedTextHeroSection />
 
-<WhatWeDo/>
+      
+<ScrollVelocity
+  texts={['Grow your', 'Business digitally']} 
+  velocity={50} 
+  className="custom-scroll-text"
+/>
 
+      <WhatWeDo />
 
       {/* Why Choose Us */}
+
       <section className="py-12 md:py-24 bg-gray-50">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
@@ -138,12 +154,19 @@ export default function Home() {
               </div>
             </div>
 
+              
+
             <div className="flex flex-col justify-center space-y-4">
-              <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm w-fit">Why Choose Us</div>
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Your Success Is Our Priority</h2>
+              <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm w-fit">
+                Why Choose Us
+              </div>
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                Your Success Is Our Priority
+              </h2>
               <p className="text-gray-500 md:text-xl">
                 At Anzi & Co., you're more than a client, you're our partner.
-                your success is our success. We are committed to delivering results that exceed your expectations.
+                your success is our success. We are committed to delivering
+                results that exceed your expectations.
               </p>
 
               <ul className="space-y-4 mt-4">
@@ -161,82 +184,99 @@ export default function Home() {
                 ))}
               </ul>
 
-              <div className="flex flex-col gap-2 min-[400px]:flex-row mt-4">
-                <Button asChild size="lg">
-                  <Link href="/about">Learn More About Us</Link>
-                </Button>
+              <div className="flex flex-col gap-2 min-[400px]:flex-row mt-4 py-4">
+                <GradientButton>
+                  Learn More
+                </GradientButton>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-            {/* Services Overview */}
-            <section className="py-12 md:py-24 bg-white">
+      {/* Services Overview */}
+      <section className="py-12 md:py-24 bg-white">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-            <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm">Our Services</div>
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Comprehensive Digital Solutions</h2>
+            <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm">
+              Our Services
+            </div>
+            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+              Comprehensive Digital Solutions
+            </h2>
             <p className="max-w-[700px] text-gray-500 md:text-xl">
-              We offer a full range of digital marketing services to help your business grow and succeed online.
+              We offer a full range of digital marketing services to help your
+              business grow and succeed online.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {
-            [
+            {[
               {
                 icon: <Globe className="h-10 w-10 text-primary" />,
                 title: "Website Development",
-                description: "Custom, responsive websites designed to convert visitors into customers.",
+                description:
+                  "Custom, responsive websites designed to convert visitors into customers.",
                 link: "/services/website-development",
               },
               {
                 icon: <Instagram className="h-10 w-10 text-primary" />,
                 title: "Social Media Marketing",
-                description: "Strategic social media campaigns to build your brand and engage your audience.",
+                description:
+                  "Strategic social media campaigns to build your brand and engage your audience.",
                 link: "/services/social-media-marketing",
               },
               {
                 icon: <PenTool className="h-10 w-10 text-primary" />,
                 title: "Graphic Design",
-                description: "Eye-catching visuals that communicate your brand message effectively.",
+                description:
+                  "Eye-catching visuals that communicate your brand message effectively.",
                 link: "/services/graphic-design",
               },
               {
                 icon: <BarChart className="h-10 w-10 text-primary" />,
                 title: "Digital Marketing",
-                description: "SEO, PPC, and content marketing strategies to drive qualified traffic.",
+                description:
+                  "SEO, PPC, and content marketing strategies to drive qualified traffic.",
                 link: "/services/digital-marketing",
               },
               {
                 icon: <Mail className="h-10 w-10 text-primary" />,
                 title: "Email Marketing",
-                description: "Targeted email campaigns that nurture leads and drive conversions.",
+                description:
+                  "Targeted email campaigns that nurture leads and drive conversions.",
                 link: "/services/email-marketing",
               },
               {
                 icon: <MessageSquare className="h-10 w-10 text-primary" />,
                 title: "SMS Marketing",
-                description: "Direct and effective SMS campaigns with high open and response rates.",
+                description:
+                  "Direct and effective SMS campaigns with high open and response rates.",
                 link: "/services/sms-marketing",
               },
               {
                 icon: <Users className="h-10 w-10 text-primary" />,
                 title: "Lead Generation",
-                description: "Strategies to attract and convert high-quality leads for your business.",
+                description:
+                  "Strategies to attract and convert high-quality leads for your business.",
                 link: "/services/lead-generation",
               },
               {
                 icon: <Lightbulb className="h-10 w-10 text-primary" />,
                 title: "Business Strategy",
-                description: "Expert consultation to help you develop and implement effective business strategies.",
+                description:
+                  "Expert consultation to help you develop and implement effective business strategies.",
                 link: "/services/business-strategy",
               },
             ].map((service, index) => (
-              <Card key={index} className="service-card border-none shadow-md hover:shadow-xl transition-all">
+              <Card
+                key={index}
+                className="service-card border-none shadow-md hover:shadow-xl transition-all"
+              >
                 <CardContent className="p-6 flex flex-col items-center text-center">
-                  <div className="mb-4 p-3 rounded-full bg-secondary">{service.icon}</div>
+                  <div className="mb-4 p-3 rounded-full bg-secondary">
+                    {service.icon}
+                  </div>
                   <h3 className="text-xl font-bold mb-2">{service.title}</h3>
                   <p className="text-gray-500 mb-4">{service.description}</p>
                   <Link
@@ -252,9 +292,11 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center mt-12">
-            <Button asChild size="lg">
-              <Link href="/services">View All Services</Link>
-            </Button>
+              <Link href="/services">
+            <GradientButton>
+              View All Services
+            </GradientButton>
+              </Link>
           </div>
         </div>
       </section>
@@ -333,7 +375,6 @@ export default function Home() {
       </section> */}
       {/* <TestimonialSliders /> */}
 
-
       {/* Social Media Showcase */}
       {/* <section className="py-12 md:py-24 bg-gray-50">
         <div className="container px-4 md:px-6">
@@ -376,23 +417,81 @@ export default function Home() {
               </Link>
             </Button>
           </div> */}
-        {/* </div>
+      {/* </div>
       </section>  */}
 
-<ScrollingStarSection />
+      <ScrollingStarSection />
 
-<InfoTabs />
+      <section className="relative py-12 md:py-24 bg-white px-4 overflow-hidden">
+  {/* Doodle Icons */}
+  <div className="absolute inset-0 pointer-events-none z-0">
+    <FiHeart className="absolute top-10 left-10 text-pink-300 opacity-20 w-5 h-5" />
+    <FiStar className="absolute top-1/3 left-4 text-yellow-300 opacity-20 w-4 h-4" />
+    <FiSmile className="absolute bottom-20 right-8 text-blue-300 opacity-20 w-5 h-5" />
+    <FiSun className="absolute bottom-10 left-20 text-yellow-200 opacity-20 w-6 h-6" />
+    <LuSparkles className="absolute top-6 right-10 text-purple-300 opacity-20 w-4 h-4" />
+    <LuCloud className="absolute top-1/4 right-1/3 text-gray-300 opacity-10 w-8 h-8" />
+    <BsFlower1 className="absolute bottom-1/4 left-1/2 text-pink-200 opacity-20 w-5 h-5" />
+    <BsStars className="absolute top-1/2 right-1/2 text-indigo-200 opacity-20 w-4 h-4" />
+    <FiHeart className="absolute top-[65%] left-10 text-red-200 opacity-20 w-4 h-4" />
+    <LuSparkles className="absolute bottom-10 right-20 text-violet-300 opacity-20 w-5 h-5" />
+  </div>
+
+  {/* Main content */}
+  <div className="relative z-10 container px-4 md:px-6">
+    <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+      <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm">
+        Testimonials
+      </div>
+      <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+        What Our Clients Say
+      </h2>
+      <p className="max-w-[700px] text-gray-500 md:text-xl">
+        Don't just take our word for it. Here's what our clients have to say about working with Anzi & Co.
+      </p>
+    </div>
+  </div>
+
+  <VideoTestimonial
+    videos={[
+      {
+        id: "1",
+        url: "/reel.mp4",
+        thumbnail: "https://i.pinimg.com/originals/46/cf/fe/46cffe44e2bbf84f6ad92979a979ef22.jpg",
+        client: {
+          name: "John Doe",
+          company: "Acme Inc.",
+          position: "CEO",
+          avatar: "https://i.pinimg.com/originals/46/cf/fe/46cffe44e2bbf84f6ad92979a979ef22.jpg",
+        },
+        quote: "This service completely changed our business!",
+      },
+    ]}
+    className="my-10"
+  />
+</section>
+
+
+
+<FeaturesSectionWithHoverEffects/>
+      <BrandsWeWorkWith />
+
+      {/* <InfoTabs /> */}
 
       {/* Contact Form & CTA */}
       <section className="py-12 md:py-24 bg-white">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="flex flex-col justify-center space-y-4">
-              <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm">Get in Touch</div>
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Ready to Grow Your Business?</h2>
+              <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm w-fit">
+                Get in Touch
+              </div>
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                Ready to Grow Your Business?
+              </h2>
               <p className="text-gray-500 md:text-xl">
-                Fill out the form to get a free consultation and discover how Anzi & Co. can help you achieve your
-                business goals.
+                Fill out the form to get a free consultation and discover how
+                Anzi & Co. can help you achieve your business goals.
               </p>
 
               <ul className="space-y-4 mt-4">
@@ -414,7 +513,9 @@ export default function Home() {
                   },
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
-                    <div className="mr-4 p-2 bg-secondary rounded-full">{item.icon}</div>
+                    <div className="mr-4 p-2 bg-secondary rounded-full">
+                      {item.icon}
+                    </div>
                     <div>
                       <p className="text-sm text-gray-500">{item.label}</p>
                       <p className="font-medium">{item.text}</p>
@@ -452,7 +553,11 @@ export default function Home() {
                   <label htmlFor="message" className="text-sm font-medium">
                     Message
                   </label>
-                  <Textarea id="message" placeholder="How can we help you?" className="min-h-[120px]" />
+                  <Textarea
+                    id="message"
+                    placeholder="How can we help you?"
+                    className="min-h-[120px]"
+                  />
                 </div>
 
                 <Button type="submit" size="lg" className="w-full">
@@ -461,11 +566,17 @@ export default function Home() {
 
                 <p className="text-xs text-gray-500 text-center">
                   By submitting this form, you agree to our{" "}
-                  <Link href="/terms-conditions" className="text-primary hover:underline">
+                  <Link
+                    href="/terms-conditions"
+                    className="text-primary hover:underline"
+                  >
                     Terms & Conditions
                   </Link>{" "}
                   and{" "}
-                  <Link href="/privacy-policy" className="text-primary hover:underline">
+                  <Link
+                    href="/privacy-policy"
+                    className="text-primary hover:underline"
+                  >
                     Privacy Policy
                   </Link>
                   .
@@ -476,6 +587,5 @@ export default function Home() {
         </div>
       </section>
     </div>
-  )
+  );
 }
-
