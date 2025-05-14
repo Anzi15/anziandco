@@ -125,7 +125,7 @@ function VelocityText({
     for (let i = 0; i < numCopies; i++) {
         spans.push(
             <span
-                className={`flex-shrink-0 ${className}`}
+                className={`flex-shrink-0 ${className} italic`}
                 key={i}
                 ref={i === 0 ? copyRef : null}
             >

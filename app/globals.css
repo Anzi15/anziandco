@@ -300,3 +300,43 @@
   }
 }
 
+.link-underline-animated {
+  @apply relative text-sm font-medium text-black hover:text-purple-900 transition-colors duration-300;
+}
+.link-underline-animated::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 0;
+  background-color: #7e22ce; /* Tailwind's purple-900 */
+  transition: width 0.5s ease;
+}
+.link-underline-animated:hover::before {
+  width: 100%;
+}
+.animated-underline {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.animated-underline::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -2px;
+  background-color: #7e22ce;
+  transition: width 0.3s ease;
+
+}
+
+.animated-underline:hover::after {
+  width: 100%;
+}
+
+

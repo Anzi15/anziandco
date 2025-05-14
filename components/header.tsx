@@ -34,28 +34,25 @@ export default function Header() {
     <header
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
-        scrolled ? "bg-white/95 backdrop-blur-sm shadow-sm py-3" : "bg-transparent py-5",
+        scrolled ? "bg-white/95 backdrop-blur-sm shadow-sm pb-3" : "bg-transparent pbp-5",
       )}
     >
       <div className="container flex items-center justify-between">
-        <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Anzi & Co.</span>
-            <div className="flex items-center gap-2">
-              <div className="relative w-10 h-10">
+          <Link href="/" className="">
+
+
                 <Image
-                  src="/placeholder.svg?height=40&width=40"
+                  src="logo.png"
                   alt="Anzi & Co. Logo"
-                  width={40}
-                  height={40}
-                  className="object-contain"
+                  width={200}
+                  height={200}
+                  className="object-contain "
                 />
-              </div>
-              <span className="text-xl font-bold text-gray-900">
-                Anzi <span className="text-primary">&</span> Co.
-              </span>
-            </div>
+    
+             
+
           </Link>
+        <div className="flex lg:flex-1">
         </div>
 
         <div className="flex lg:hidden">
@@ -75,7 +72,7 @@ export default function Header() {
               key={item.name}
               href={item.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
+                "text-sm font-medium transition-colors animated-underline",
                 pathname === item.href ? "text-primary" : "text-gray-700",
               )}
             >
@@ -94,23 +91,6 @@ export default function Header() {
             <div className="fixed inset-0 bg-black/20 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
             <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
               <div className="flex items-center justify-between">
-                <Link href="/" className="-m-1.5 p-1.5">
-                  <span className="sr-only">Anzi & Co.</span>
-                  <div className="flex items-center gap-2">
-                    <div className="relative w-8 h-8">
-                      <Image
-                        src="/placeholder.svg?height=32&width=32"
-                        alt="Anzi & Co. Logo"
-                        width={32}
-                        height={32}
-                        className="object-contain"
-                      />
-                    </div>
-                    <span className="text-lg font-bold text-gray-900">
-                      Anzi <span className="text-primary">&</span> Co.
-                    </span>
-                  </div>
-                </Link>
                 <button
                   type="button"
                   className="-m-2.5 rounded-md p-2.5 text-gray-700"

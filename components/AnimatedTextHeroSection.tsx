@@ -237,7 +237,7 @@ export default function AnimatedTextHeroSection({
               className="flex flex-col sm:flex-row gap-6 justify-center mt-8 px-4 sm:px-0"
             >
               {/* Get Started Button */}
-              <motion.button
+              <motion.div
                 className="relative w-full sm:w-auto overflow-hidden rounded-full group"
                 whileHover="hover"
                 whileTap="tap"
@@ -283,7 +283,7 @@ export default function AnimatedTextHeroSection({
                 <div 
                   className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 -translate-x-full group-hover:translate-x-full transition-all duration-1000 ease-in-out"
                 />
-              </motion.button>
+              </motion.div>
 
               {/* Learn More Button */}
               <motion.button

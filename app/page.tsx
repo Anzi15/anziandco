@@ -5,9 +5,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 
-import { FiHeart, FiStar, FiSmile, FiSun } from "react-icons/fi"
-import { LuSparkles, LuCloud } from "react-icons/lu"
-import { BsFlower1, BsStars } from "react-icons/bs"
+import { FiHeart, FiStar, FiSmile, FiSun } from "react-icons/fi";
+import { LuSparkles, LuCloud } from "react-icons/lu";
+import { BsFlower1, BsStars } from "react-icons/bs";
 
 import services from "./data/services.json";
 import {
@@ -36,6 +36,8 @@ import BrandsWeWorkWith from "@/components/BrandsWeWorkWith";
 import { FeaturesSectionWithHoverEffects } from "@/components/Features";
 import { GradientButton } from "@/components/ui/GradeintButton";
 import ScrollVelocity from "@/components/ui/MovingTextScript";
+import BlogCard from "@/components/ui/BlogCard";
+import BlogSuggestions from "@/components/BlogSuggestions";
 
 export default function Home() {
   const iconsMap = {
@@ -128,12 +130,11 @@ export default function Home() {
 
       <AnimatedTextHeroSection />
 
-      
-<ScrollVelocity
-  texts={['Grow your', 'Business digitally']} 
-  velocity={50} 
-  className="custom-scroll-text"
-/>
+      <ScrollVelocity
+        texts={["Grow your", "Business digitally"]}
+        velocity={50}
+        className="custom-scroll-text"
+      />
 
       <WhatWeDo />
 
@@ -153,8 +154,6 @@ export default function Home() {
                 />
               </div>
             </div>
-
-              
 
             <div className="flex flex-col justify-center space-y-4">
               <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm w-fit">
@@ -185,9 +184,7 @@ export default function Home() {
               </ul>
 
               <div className="flex flex-col gap-2 min-[400px]:flex-row mt-4 py-4">
-                <GradientButton>
-                  Learn More
-                </GradientButton>
+                <GradientButton>Learn More</GradientButton>
               </div>
             </div>
           </div>
@@ -292,11 +289,9 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center mt-12">
-              <Link href="/services">
-            <GradientButton>
-              View All Services
-            </GradientButton>
-              </Link>
+            <Link href="/services">
+              <GradientButton>View All Services</GradientButton>
+            </Link>
           </div>
         </div>
       </section>
@@ -423,21 +418,10 @@ export default function Home() {
       <ScrollingStarSection />
 
       <section className="relative py-12 md:py-24 bg-white px-4 overflow-hidden">
-  {/* Doodle Icons */}
-  <div className="absolute inset-0 pointer-events-none z-0">
-    <FiHeart className="absolute top-10 left-10 text-pink-300 opacity-20 w-5 h-5" />
-    <FiStar className="absolute top-1/3 left-4 text-yellow-300 opacity-20 w-4 h-4" />
-    <FiSmile className="absolute bottom-20 right-8 text-blue-300 opacity-20 w-5 h-5" />
-    <FiSun className="absolute bottom-10 left-20 text-yellow-200 opacity-20 w-6 h-6" />
-    <LuSparkles className="absolute top-6 right-10 text-purple-300 opacity-20 w-4 h-4" />
-    <LuCloud className="absolute top-1/4 right-1/3 text-gray-300 opacity-10 w-8 h-8" />
-    <BsFlower1 className="absolute bottom-1/4 left-1/2 text-pink-200 opacity-20 w-5 h-5" />
-    <BsStars className="absolute top-1/2 right-1/2 text-indigo-200 opacity-20 w-4 h-4" />
-    <FiHeart className="absolute top-[65%] left-10 text-red-200 opacity-20 w-4 h-4" />
-    <LuSparkles className="absolute bottom-10 right-20 text-violet-300 opacity-20 w-5 h-5" />
-  </div>
 
-  {/* Main content */}
+
+
+
   <div className="relative z-10 container px-4 md:px-6">
     <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
       <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm">
@@ -454,32 +438,29 @@ export default function Home() {
 
   <VideoTestimonial
     videos={[
-      {
-        id: "1",
-        url: "/reel.mp4",
-        thumbnail: "https://i.pinimg.com/originals/46/cf/fe/46cffe44e2bbf84f6ad92979a979ef22.jpg",
-        client: {
-          name: "John Doe",
-          company: "Acme Inc.",
-          position: "CEO",
-          avatar: "https://i.pinimg.com/originals/46/cf/fe/46cffe44e2bbf84f6ad92979a979ef22.jpg",
-        },
-        quote: "This service completely changed our business!",
-      },
-    ]}
+  {
+    id: "1",
+    url: "https://www.youtube.com/watch?v=POogqVherBQ",
+    thumbnail: "/mehran thumbnail.png",
+    client: {
+      name: "Mehran Dadbeh",
+      company: "Mindthatseekstruth",
+      position: "Founder",
+    },
+    quote: "I wish I met you guys before",
+  }]}
     className="my-10"
   />
 </section>
 
-
-
-<FeaturesSectionWithHoverEffects/>
-      <BrandsWeWorkWith />
+      <FeaturesSectionWithHoverEffects />
+      {/* <BrandsWeWorkWith /> */}
+      <BlogSuggestions />
 
       {/* <InfoTabs /> */}
 
       {/* Contact Form & CTA */}
-      <section className="py-12 md:py-24 bg-white">
+      {/* <section className="py-12 md:py-24 bg-white">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="flex flex-col justify-center space-y-4">
@@ -585,7 +566,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

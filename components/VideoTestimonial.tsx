@@ -1,10 +1,10 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
-import { Play, Pause, Volume2, VolumeX } from 'lucide-react'
-import { cn } from "@/lib/utils"
+import { Play, Pause, Volume2, VolumeX } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
 interface VideoTestimonialProps {
   videos: {
@@ -15,106 +15,114 @@ interface VideoTestimonialProps {
       name: string
       company: string
       position: string
-      avatar: string
     }
     quote: string
   }[]
   className?: string
 }
 
+declare global {
+  interface Window {
+    YT: any
+    onYouTubeIframeAPIReady: () => void
+  }
+}
+
 export default function VideoTestimonial({ videos, className }: VideoTestimonialProps) {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [progress, setProgress] = useState(0)
   const [isHovering, setIsHovering] = useState(false)
+  const playerRef = useRef<any>(null)
+  const playerContainerRef = useRef<HTMLDivElement>(null)
 
   const activeVideo = videos[activeIndex]
 
+  // Load YouTube Iframe API
   useEffect(() => {
-    // Reset video state when changing videos
-    setIsPlaying(false)
-    setProgress(0)
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0
-    }
-  }, [activeIndex])
-
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-
-    const updateProgress = () => {
-      const currentProgress = (video.currentTime / video.duration) * 100
-      setProgress(currentProgress)
+    if (!window.YT) {
+      const tag = document.createElement("script")
+      tag.src = "https://www.youtube.com/iframe_api"
+      const firstScriptTag = document.getElementsByTagName("script")[0]
+      if (firstScriptTag && firstScriptTag.parentNode) {
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
+      }
+    } else {
+      loadPlayer()
     }
 
-    const handleEnded = () => {
+    window.onYouTubeIframeAPIReady = () => {
+      loadPlayer()
+    }
+  }, [])
+
+  // Reload video when index changes
+  useEffect(() => {
+    if (window.YT && window.YT.Player && playerRef.current) {
+      playerRef.current.loadVideoById(getVideoId(activeVideo.url))
       setIsPlaying(false)
-      setProgress(0)
-      video.currentTime = 0
-    }
-
-    video.addEventListener("timeupdate", updateProgress)
-    video.addEventListener("ended", handleEnded)
-
-    return () => {
-      video.removeEventListener("timeupdate", updateProgress)
-      video.removeEventListener("ended", handleEnded)
+      setIsMuted(true)
+      playerRef.current.mute()
     }
   }, [activeIndex])
+
+  const loadPlayer = () => {
+    if (playerRef.current || !playerContainerRef.current) return
+
+    playerRef.current = new window.YT.Player(playerContainerRef.current, {
+      videoId: getVideoId(activeVideo.url),
+      playerVars: {
+        autoplay: 0,
+        controls: 0,
+        modestbranding: 1,
+        rel: 0,
+        showinfo: 0,
+        fs: 0,
+        iv_load_policy: 3,
+        disablekb: 1,
+      },
+      events: {
+        onReady: (event: any) => {
+          event.target.mute()
+        }
+      }
+    })
+  }
+
+  const getVideoId = (url: string) => {
+    const match = url.match(/v=([^&]+)/)
+    return match ? match[1] : ""
+  }
 
   const togglePlay = () => {
-    const video = videoRef.current
-    if (!video) return
-
+    if (!playerRef.current) return
     if (isPlaying) {
-      video.pause()
+      playerRef.current.pauseVideo()
     } else {
-      video.play()
+      playerRef.current.playVideo()
     }
     setIsPlaying(!isPlaying)
   }
 
   const toggleMute = () => {
-    const video = videoRef.current
-    if (!video) return
-
-    video.muted = !isMuted
+    if (!playerRef.current) return
+    if (isMuted) {
+      playerRef.current.unMute()
+    } else {
+      playerRef.current.mute()
+    }
     setIsMuted(!isMuted)
-  }
-
-  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const video = videoRef.current
-    if (!video) return
-
-    const progressBar = e.currentTarget
-    const rect = progressBar.getBoundingClientRect()
-    const clickPosition = e.clientX - rect.left
-    const percentage = (clickPosition / rect.width) * 100
-    
-    video.currentTime = (percentage / 100) * video.duration
-    setProgress(percentage)
   }
 
   return (
     <div className={cn("relative w-full max-w-md mx-auto", className)}>
-      <div 
+      <div
         className="relative aspect-[9/16] rounded-xl overflow-hidden shadow-xl bg-black"
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
-        {/* Video */}
-        <video
-          ref={videoRef}
-          src={activeVideo.url}
-          poster={activeVideo.thumbnail}
-          className="w-full h-full object-cover"
-          muted={isMuted}
-          preload="none"
-          playsInline
-        />
+        {/* YouTube Player container (dynamic) */}
+        <div ref={playerContainerRef} className="absolute inset-0 w-full h-full z-0" />
 
         {/* Purple gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 via-transparent to-transparent pointer-events-none" />
@@ -122,14 +130,6 @@ export default function VideoTestimonial({ videos, className }: VideoTestimonial
         {/* Client info */}
         <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
           <div className="flex items-center mb-3">
-            <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white">
-              <Image
-                src={activeVideo.client.avatar || "/placeholder.svg"}
-                alt={activeVideo.client.name}
-                fill
-                className="object-cover"
-              />
-            </div>
             <div className="ml-3 mb-3">
               <h4 className="text-white font-bold">{activeVideo.client.name}</h4>
               <p className="text-white/80 text-sm">
@@ -140,7 +140,7 @@ export default function VideoTestimonial({ videos, className }: VideoTestimonial
           <p className="text-white text-sm italic mb-4">"{activeVideo.quote}"</p>
         </div>
 
-        {/* Video controls */}
+        {/* Play/Pause UI */}
         <div className={cn(
           "py-2 absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-300",
           isPlaying && !isHovering ? "opacity-0" : "opacity-100"
@@ -161,19 +161,12 @@ export default function VideoTestimonial({ videos, className }: VideoTestimonial
 
         {/* Bottom controls */}
         <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
-          {/* Progress bar */}
-          <div 
-            className="w-full h-1 bg-white/30 rounded-full mb-4 cursor-pointer"
-            onClick={handleProgressClick}
-          >
-            <div 
-              className="h-full bg-primary rounded-full"
-              style={{ width: `${progress}%` }}
-            />
+          <div className="w-full h-1 bg-white/30 rounded-full mb-4">
+            {/* Static progress bar placeholder */}
+            <div className="h-full bg-primary rounded-full" style={{ width: `0%` }} />
           </div>
 
           <div className="flex justify-between items-center">
-            {/* Video selector dots */}
             <div className="flex space-x-2">
               {videos.map((_, index) => (
                 <button
@@ -186,24 +179,17 @@ export default function VideoTestimonial({ videos, className }: VideoTestimonial
                 />
               ))}
             </div>
-
-            {/* Mute button */}
             <Button
               variant="ghost"
               size="icon"
               className="h-8 w-8 text-white hover:bg-white/10"
               onClick={toggleMute}
             >
-              {isMuted ? (
-                <VolumeX className="h-4 w-4" />
-              ) : (
-                <Volume2 className="h-4 w-4" />
-              )}
+              {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
             </Button>
           </div>
         </div>
 
-        {/* Animated purple pulse effect when not playing */}
         {!isPlaying && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="absolute w-16 h-16 rounded-full bg-primary/20 animate-ping" />
