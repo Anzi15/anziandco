@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle, Award, Target, TrendingUp } from "lucide-react"
+import FooterCta from "@/components/ui/FooterCta"
 
 export default function AboutPage() {
   return (
@@ -218,15 +219,21 @@ export default function AboutPage() {
                 bio: "Emily brings creative solutions to life with her innovative design approach and attention to detail.",
               },
               {
-                name: "Michael Chen",
-                position: "Head of SEO",
-                image: "/placeholder.svg?height=300&width=300&text=MC",
-                bio: "Michael's data-driven strategies have helped countless businesses improve their search rankings.",
+                name: "Adeen",
+                position: "Website Designer",
+                image: "/adeen.png",
+                bio: "Adeen is a digital marketing expert with a passion for helping businesses grow online with his expertise in website designing."
               },
               {
-                name: "Sarah Rodriguez",
-                position: "Social Media Manager",
-                image: "/placeholder.svg?height=300&width=300&text=SR",
+                name: "Hizbullah",
+                position: "Video Editor",
+                image: "/hizb.png",
+                bio: "Sarah crafts engaging social media campaigns that connect brands with their target audiences.",
+              },
+              {
+                name: "Jawad",
+                position: "Sales Executive",
+                image: "/jawad.png",
                 bio: "Sarah crafts engaging social media campaigns that connect brands with their target audiences.",
               },
             ].map((member, index) => (
@@ -321,26 +328,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-12 md:py-24 bg-primary text-white">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-              Ready to Transform Your Digital Presence?
-            </h2>
-            <p className="max-w-[700px] text-primary-foreground/80 md:text-xl">
-              Partner with Anzi & Co. and take your business to new heights with our expert digital marketing solutions.
-            </p>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row mt-4">
-              <Button asChild size="lg" variant="secondary">
-                <Link href="/contact">Get in Touch</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
-                <Link href="/services">Explore Our Services</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+<FooterCta />
     </div>
   )
 }
