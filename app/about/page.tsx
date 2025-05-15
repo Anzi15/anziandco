@@ -8,18 +8,23 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 hero-gradient">
+      <section
+        className="pt-32 pb-16 md:pt-40 md:pb-24"
+        style={{
+          background: "linear-gradient(to bottom, #ecbcfd 0%, #fff 81%)",
+        }}
+      >
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                About <span className="gradient-text">Anzi & Co.</span>
-              </h1>
-              <p className="max-w-[700px] mx-auto text-gray-500 md:text-xl dark:text-gray-400">
-                We're a team of digital marketing experts passionate about helping businesses grow and succeed in the
-                digital landscape.
-              </p>
-            </div>
+        <div className="space-y-2">
+          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+            About <span className="italic">Anzi & Co.</span>
+          </h1>
+          <p className="max-w-[700px] mx-auto text-gray-500 md:text-xl dark:text-gray-400">
+            We're a team of digital marketing experts passionate about helping businesses grow and succeed in the
+            digital landscape.
+          </p>
+        </div>
           </div>
         </div>
       </section>
@@ -29,23 +34,19 @@ export default function AboutPage() {
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="relative">
-              <div className="relative w-full max-w-[500px] aspect-video overflow-hidden rounded-xl shadow-xl">
+              <div className="relative w-full max-w-[700px] aspect-video overflow-hidden rounded-xl shadow-xl">
                 <Image
-                  src="/placeholder.svg?height=500&width=800&text=Our+Story"
+                  src="/meet the minds behind anzi and company.png"
                   alt="Our Story"
                   width={800}
                   height={500}
                   className="object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-primary rounded-lg shadow-lg p-6 max-w-[200px] text-white">
-                <div className="text-3xl font-bold">5+</div>
-                <p className="text-sm mt-1">Years of excellence</p>
-              </div>
             </div>
 
             <div className="flex flex-col justify-center space-y-4">
-              <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm">Our Story</div>
+              <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm w-fit">Our Story</div>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
                 From Humble Beginnings to Industry Leaders
               </h2>
@@ -133,7 +134,7 @@ export default function AboutPage() {
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="flex flex-col justify-center space-y-4">
-              <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm">Core Values</div>
+              <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm w-fit">Core Values</div>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">The Principles That Guide Us</h2>
               <p className="text-gray-500 md:text-xl">
                 At Anzi & Co., our values aren't just words on a wall—they're the principles that guide our decisions,
@@ -177,7 +178,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="relative w-full max-w-[500px] aspect-square overflow-hidden rounded-xl shadow-xl">
                 <Image
-                  src="/placeholder.svg?height=600&width=600&text=Our+Values"
+                  src="STAND OUT.png"
                   alt="Our Values"
                   width={600}
                   height={600}
@@ -205,15 +206,15 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                name: "John Smith",
+                name: "Ali Anzar",
                 position: "Founder & CEO",
-                image: "/placeholder.svg?height=300&width=300&text=JS",
+                image: "/anzi.png",
                 bio: "With over 15 years of experience in digital marketing, John leads our team with vision and expertise.",
               },
               {
-                name: "Emily Johnson",
-                position: "Creative Director",
-                image: "/placeholder.svg?height=300&width=300&text=EJ",
+                name: "Abdullah",
+                position: "Social Media Strategist",
+                image: "/huni.png",
                 bio: "Emily brings creative solutions to life with her innovative design approach and attention to detail.",
               },
               {
@@ -242,7 +243,6 @@ export default function AboutPage() {
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold">{member.name}</h3>
                   <p className="text-primary font-medium mb-2">{member.position}</p>
-                  <p className="text-gray-500 text-sm">{member.bio}</p>
                 </CardContent>
               </Card>
             ))}

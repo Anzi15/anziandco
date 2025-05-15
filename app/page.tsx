@@ -38,6 +38,7 @@ import { GradientButton } from "@/components/ui/GradeintButton";
 import ScrollVelocity from "@/components/ui/MovingTextScript";
 import BlogCard from "@/components/ui/BlogCard";
 import BlogSuggestions from "@/components/BlogSuggestions";
+import StatsSection from "@/components/ui/Stats";
 
 export default function Home() {
   const iconsMap = {
@@ -456,6 +457,8 @@ export default function Home() {
       <FeaturesSectionWithHoverEffects />
       {/* <BrandsWeWorkWith /> */}
       <BlogSuggestions />
+
+      <StatsSection  />
 
       {/* <InfoTabs /> */}
 
