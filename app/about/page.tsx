@@ -8,6 +8,7 @@ import FooterCta from "@/components/ui/FooterCta"
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Header */}
       {/* Hero Section */}
       <section
         className="pt-32 pb-16 md:pt-40 md:pb-24"

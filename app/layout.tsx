@@ -6,6 +6,7 @@ import { Poppins, Lato } from "next/font/google"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { ThemeModeScript } from "flowbite-react";
+import { Toaster } from "react-hot-toast"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -53,6 +54,7 @@ export default function RootLayout({
           <div className="relative flex min-h-screen flex-col">
             <Header />
             <main className="flex-1">{children}</main>
+            <Toaster />
             <Footer />
           </div>
         </ThemeProvider>

@@ -13,6 +13,7 @@ import { getFirestore, collection, getDocs, addDoc, query, where } from "firebas
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useToast } from "@/components/ui/use-toast"
+import notify from "../ShowToast"
 
 // Form schema
 const formSchema = z.object({
@@ -122,7 +123,7 @@ export default function NewsletterSignup() {
         //   description: "This email is already subscribed to our newsletter.",
         //   variant: "destructive",
         // })
-        alert("Already subscribed")
+        notify("Already subscribed", "error")
         setIsSubmitting(false)
         return
       }
@@ -138,8 +139,7 @@ export default function NewsletterSignup() {
       //   title: "Successfully subscribed!",
       //   description: "Thank you for subscribing to our newsletter.",
       // })
-alert("Successfully subscribed!")
-
+      notify("Successfully subscribed!", "success")
       // Show success state
       setIsSuccess(true)
       setTimeout(() => setIsSuccess(false), 3000)
@@ -159,7 +159,7 @@ alert("Successfully subscribed!")
   }
 
   return (
-    <div className="relative w-full md:px-8 py-8 mx-auto">
+    <div className="relative w-full md:px-8 py-8 mx-auto max-w-100vw overflow-x-hidden overflow-y-hidden">
       {/* Background canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full -z-10" />
 
