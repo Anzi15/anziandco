@@ -31,7 +31,7 @@ import AnimatedTextHeroSection from "@/components/AnimatedTextHeroSection";
 import WhatWeDo from "@/components/WhatWeDo";
 import ScrollingStarSection from "@/components/WorldClassDeveloper";
 import InfoTabs from "@/components/InfoTabs";
-import VideoTestimonial from "@/components/VideoTestimonial";
+// import VideoTestimonial from "@/components/VideoTestimonial";
 import BrandsWeWorkWith from "@/components/BrandsWeWorkWith";
 import { FeaturesSectionWithHoverEffects } from "@/components/Features";
 import { GradientButton } from "@/components/ui/GradeintButton";
@@ -418,7 +418,7 @@ export default function Home() {
 
       <ScrollingStarSection />
 
-      <section className="relative py-12 md:py-24 bg-white px-4 overflow-hidden">
+      {/* <section className="relative py-12 md:py-24 bg-white px-4 overflow-hidden">
 
 
 
@@ -452,7 +452,7 @@ export default function Home() {
   }]}
     className="my-10"
   />
-</section>
+</section> */}
 
       <FeaturesSectionWithHoverEffects />
       {/* <BrandsWeWorkWith /> */}

@@ -48,7 +48,7 @@ export default function RootLayout({
       <head>
       <ThemeModeScript />
       </head>
-      <body className={cn("min-h-screen bg-background font-sans antialiased", poppins.variable, lato.variable)}>
+      <body className={cn("min-h-screen bg-background font-sans antialiased ", poppins.variable, lato.variable)}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <div className="relative flex min-h-screen flex-col">
             <Header />

@@ -244,7 +244,7 @@ export default function AboutPage() {
                     alt={member.name}
                     width={300}
                     height={300}
-                    className="object-cover"
+                    className="object-cover w-full"
                   />
                 </div>
                 <CardContent className="p-6">
