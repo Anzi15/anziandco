@@ -1,46 +1,84 @@
-"use client";
-import React from 'react';
+import Image from "next/image";
+import React from "react";
 
-const BrandsWeWorkWith = () => {
-  const brands = [
-    { name: 'Brand 1', logo: '/logo1 (1).png' },
-    { name: 'Brand 2', logo: '/logo1 (2).png' },
-    { name: 'Brand 3', logo: '/logo1 (3).png' },
-    { name: 'Brand 4', logo: '/logo1 (4).png' },
-    { name: 'Brand 5', logo: '/logo1 (5).png' },
-    { name: 'Brand 6', logo: '/logo1 (6).png' },
-    { name: 'Brand 7', logo: '/logo1 (7).png' },
-    { name: 'Brand 8', logo: '/logo1 (8).png' },
-    { name: 'Brand 9', logo: '/logo1 (9).png' },
-    { name: 'Brand 10', logo: '/logo1 (10).png' },
-    { name: 'Brand 11', logo: '/logo1 (11).png' },
-    { name: 'Brand 12', logo: '/logo1 (12).png' },
-    // Add more logos
-  ];
+interface Brand {
+  imageSrc: string;
+  lightImageSrc: string;
+  altText: string;
+  link: string;
+}
+
+const brandsData: Brand[] = [
+  {
+    imageSrc: "logo1 (1).png",
+    lightImageSrc: "logo1 (1).png",
+    altText: "graygrids",
+    link: "#",
+  },
+  {
+    imageSrc: "logo1 (3).png",
+    lightImageSrc: "logo1 (3).png",
+    altText: "brand3",
+    link: "#",
+  },
+  {
+    imageSrc: "logo1 (4).png",
+    lightImageSrc: "logo1 (4).png",
+    altText: "brand4",
+    link: "#",
+  },
+  {
+    imageSrc: "logo1 (6).png",
+    lightImageSrc: "logo1 (6).png",
+    altText: "brand6",
+    link: "#",
+  },
+  {
+    imageSrc: "logo1 (7).png",
+    lightImageSrc: "logo1 (7).png",
+    altText: "brand7",
+    link: "#",
+  },
+  {
+    imageSrc: "logo1 (8).png",
+    lightImageSrc: "logo1 (8).png",
+    altText: "brand8",
+    link: "#",
+  },
+];
+
+export default function BrandsWeWorkWith() {
+  return (
+    <section className="bg-white py-4 dark:bg-dark">
+      <div className="container mx-auto">
+        <div className="-mx-4 flex flex-wrap">
+          <div className="w-full px-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 justify-items-center">
+
+              {brandsData.map((brand, i) => (
+                <SingleImage key={i} brand={brand} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+interface SingleImageProps {
+  brand: Brand;
+}
+
+const SingleImage: React.FC<SingleImageProps> = ({ brand }) => {
+  const { link, imageSrc, lightImageSrc, altText } = brand;
 
   return (
-    <div className="flex flex-col items-center justify-center w-full py-10 bg-gray-100">
-      <h2 className="text-2xl mb-6 py-6">
-        These brands choose{' '}
-        <span className="text-purple-600 font-black">Anzi & Co</span>
-      </h2>
-
-      <div className="w-full flex flex-wrap justify-center gap-8">
-        {brands.map((brand, index) => (
-          <div
-            key={index}
-            className="flex-shrink-0 w-40 h-20 flex items-center justify-center"
-          >
-            <img
-              src={brand.logo}
-              alt={brand.name}
-              className="h-full w-auto object-contain"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
+    <a
+      href={link}
+      className="mx-4 flex w-[150px] items-center justify-center py-5 2xl:w-[180px]"
+    >
+      <Image src={imageSrc} width={100} height={100} alt="Best digital marketing agency | Website design"/>
+    </a>
   );
 };
-
-export default BrandsWeWorkWith;
