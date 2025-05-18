@@ -113,30 +113,32 @@ export default function NewsletterSignup() {
     try {
       // Check if email already exists
       const emailsRef = collection(db, "newsletter-emails")
-      const q = query(emailsRef, where("email", "==", data.email))
+      const q = query(emailsRef, where("email", "==", data.email.toLowerCase()))
       const querySnapshot = await getDocs(q)
 
       if (!querySnapshot.empty) {
-        toast({
-          title: "Already subscribed",
-          description: "This email is already subscribed to our newsletter.",
-          variant: "destructive",
-        })
+        // toast({
+        //   title: "Already subscribed",
+        //   description: "This email is already subscribed to our newsletter.",
+        //   variant: "destructive",
+        // })
+        alert("Already subscribed")
         setIsSubmitting(false)
         return
       }
 
       // Add email to Firebase
       await addDoc(collection(db, "newsletter-emails"), {
-        email: data.email,
+        email: data.email.toLowerCase(),
         subscribedAt: new Date(),
       })
 
       // Show success toast
-      toast({
-        title: "Successfully subscribed!",
-        description: "Thank you for subscribing to our newsletter.",
-      })
+      // toast({
+      //   title: "Successfully subscribed!",
+      //   description: "Thank you for subscribing to our newsletter.",
+      // })
+alert("Successfully subscribed!")
 
       // Show success state
       setIsSuccess(true)
@@ -251,14 +253,14 @@ export default function NewsletterSignup() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <form onSubmit={handleSubmit(onSubmit)} className="relative">
-                <div className="relative group">
+                <div className="relative group flex items-center">
                   <AnimatePresence>
                     {!isSuccess ? (
-                      <motion.div initial={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
+                      <motion.div initial={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2 m-auto">
                         <Input
                           {...register("email")}
                           placeholder="Enter your email"
-                          className="pl-4 pr-4 py-7 bg-white/50 dark:bg-black/20 backdrop-blur-sm border-purple-300/50 dark:border-purple-700/50 focus:border-purple-500 focus:ring-purple-400 transition-all duration-300 rounded-xl shadow-inner"
+                          className="pl-4 pr-4 py-7 bg-white/50 dark:bg-black/20 backdrop-blur-sm border-purple-300/50 dark:border-purple-700/50 focus:border-purple-500 focus:ring-purple-400 transition-all duration-300 rounded-xl shadow-inner max-w-[20rem]"
                         />
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                           <Button
