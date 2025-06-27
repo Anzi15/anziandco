@@ -64,10 +64,10 @@ function FAQ({ faqs = defaultFaqs }: FAQProps) {
                     <Accordion type="single" collapsible className="w-full">
                         {faqs.map((faq, index) => (
                             <AccordionItem key={index} value={"index-" + index}>
-                                <AccordionTrigger>
+                                <AccordionTrigger className="text-left">
                                     {faq.question}
                                 </AccordionTrigger>
-                                <AccordionContent>
+                                <AccordionContent className="text-left">
                                     {faq.answer}
                                 </AccordionContent>
                             </AccordionItem>

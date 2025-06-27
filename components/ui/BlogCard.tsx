@@ -11,7 +11,7 @@ type BlogCardProps = {
 
 const BlogCard: React.FC<BlogCardProps> = ({ image, text, date, link }) => {
     return (
-        <Link href={link} className="group">
+        <Link href={`/blog/${link}`} className="group">
         <div className=' bg-white shadow-md  max-w-sm mx-auto flex flex-col gap-4 rounded-3xl pb-8 cursor-pointer hover:shadow-lg transition-shadow duration-500 hover:bg-gray-50' >
             <Image
                 src={image}

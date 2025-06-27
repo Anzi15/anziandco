@@ -45,7 +45,7 @@ export default function Header() {
           <div className="flex flex-1">
             <Link href="/">
               <Image
-                src="logo.png"
+                src="/logo.png"
                 alt="Anzi & Co. Logo"
                 width={180}
                 height={180}

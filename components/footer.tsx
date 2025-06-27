@@ -143,7 +143,7 @@ export default function Footer() {
           <div className="border-t border-gray-200 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="text-sm">
-                © 2025 Market Swipe Technologies Limited
+                © 2025 Anzi &. CO
                 <span className="mx-3">|</span>
                 <Link href="#" className="animated-underline">
                   Terms & Conditions
