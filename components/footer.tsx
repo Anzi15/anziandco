@@ -158,17 +158,14 @@ export default function Footer() {
                 </Link>
               </div>
               <div className="flex items-center gap-6">
-                <Link href="" aria-label="Instagram" className="text-2xl hover:text-purple-500 transition-colors">
+                <Link href="http://instagram.com/anziandco" target="_blank" aria-label="Instagram" className="text-2xl hover:text-purple-500 transition-colors">
                   <RiInstagramFill />
                 </Link>
-                <Link href="" aria-label="X" className="text-2xl hover:text-purple-500 transition-colors">
+                <Link href="https://x.com/anziandco" aria-label="X" target="_blank" className="text-2xl hover:text-purple-500 transition-colors">
                  <BsTwitterX/>
                 </Link>
-                <Link href="" aria-label="Facebook" className="text-2xl hover:text-purple-500 transition-colors">
+                <Link href="https://www.facebook.com/anziandco/" target="_blank" aria-label="Facebook" className="text-2xl hover:text-purple-500 transition-colors">
                  <FaFacebook />
-                </Link>
-                <Link href="" aria-label="Youtube" className="text-2xl hover:text-purple-500 transition-colors">
-                 <FaYoutube />
                 </Link>
               </div>
             </div>
