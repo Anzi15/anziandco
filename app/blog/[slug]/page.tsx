@@ -7,7 +7,6 @@ import { initializeApp } from "firebase/app"
 import { getFirestore, collection, query, where, getDocs, limit, orderBy } from "firebase/firestore"
 import NewsletterSignup from "@/components/ui/FooterCta"
 
-// Firebase configuration - replace with your config
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -125,7 +124,6 @@ export default async function BlogPost({
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-purple-50">
-
       {/* Hero Section */}
       <section className="relative overflow-hidden py-4">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 via-pink-600/5 to-blue-600/10"></div>
@@ -143,15 +141,14 @@ export default async function BlogPost({
               </div>
               <span>•</span>
               <span>
-  {post.createdAt
-    ? new Date(post.createdAt.seconds * 1000).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      })
-    : "Recently Published"}
-</span>
-
+                {post.createdAt
+                  ? new Date(post.createdAt.seconds * 1000).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })
+                  : "Recently Published"}
+              </span>
             </div>
           </div>
         </div>
@@ -199,8 +196,8 @@ export default async function BlogPost({
                 </li>
               ),
               blockquote: ({ children }) => (
-                <blockquote className="border-l-4 border-gradient-to-b from-purple-600 to-pink-600 pl-8 py-4 my-12 bg-gradient-to-r from-purple-50 to-pink-50 rounded-r-2xl shadow-sm">
-                  <div className="text-gray-800 italic text-2xl font-light leading-relaxed">{children}</div>
+                <blockquote className="border-l-4 border-gradient-to-b from-purple-600 to-pink-600 pl-8 py-4 my-12 bg-gradient-to-r from-purple-700 to-pink-700 rounded-r-2xl shadow-sm">
+                  <div className="text-white italic text-2xl font-light leading-relaxed">{children}</div>
                 </blockquote>
               ),
               code: ({ children }) => (
@@ -303,7 +300,6 @@ export default async function BlogPost({
 
         <NewsletterSignup />
       </main>
-
     </div>
   )
 }
