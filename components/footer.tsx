@@ -145,15 +145,15 @@ export default function Footer() {
               <div className="text-sm">
                 © 2025 Anzi &. CO
                 <span className="mx-3">|</span>
-                <Link href="#" className="animated-underline">
+                <Link href="/terms-conditions" className="animated-underline">
                   Terms & Conditions
                 </Link>
                 <span className="mx-3">|</span>
-                <Link href="#" className="animated-underline">
+                <Link href="/privacy-policy" className="animated-underline">
                   Privacy Policy
                 </Link>
                 <span className="mx-3">|</span>
-                <Link href="#" className="animated-underline">
+                <Link href="/refund-policy" className="animated-underline">
                   Refund Policy
                 </Link>
               </div>
