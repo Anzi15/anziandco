@@ -27,9 +27,11 @@ export default function Footer() {
                 +92-324-8226367
                 </Link>
               </div>
+              <Link href={"/get-quote?service=web-development"} className="text-sm font-medium animated-underline">
               <Button className="bg-black text-white hover:bg-black/90 rounded-md px-6 h-auto hover:bg-purple-700 py-3">
-                GET A FREE AUDIT <ArrowRight className="ml-2 h-4 w-4" />
+                GET A QUOTE <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
+              </Link>
             </div>
           </div>
 
@@ -91,10 +93,10 @@ export default function Footer() {
             <Link href="#" className="text-sm font-medium animated-underline w-fit ">
               UI/UX Design
             </Link>
-            <Link href="#" className="text-sm font-medium animated-underline w-fit">
+            <Link href="/services/website-development" className="text-sm font-medium animated-underline w-fit">
               Web Development
             </Link>
-            <Link href="#" className="text-sm font-medium animated-underline w-fit">
+            <Link href="/services/social-media-marketing" className="text-sm font-medium animated-underline w-fit">
               Social Media Marketing
             </Link>
             <Link href="#" className="text-sm font-medium animated-underline w-fit">
@@ -116,25 +118,25 @@ export default function Footer() {
 
           <div className="mt-16 border-t border-gray-200 pt-8">
             <div className="flex flex-wrap justify-center gap-12 mb-12">
-              <Link href="#" className="text-sm animated-underline">
+              <Link href="/about" className="text-sm animated-underline">
                 About
               </Link>
-              <Link href="#" className="text-sm animated-underline">
+              <Link href="/blog" className="text-sm animated-underline">
                 Blog
               </Link>
-              <Link href="#" className="text-sm animated-underline">
+              <Link href="/careers" className="text-sm animated-underline">
                 Careers
               </Link>
-              <Link href="#" className="text-sm animated-underline">
+              <Link href="/about#team" className="text-sm animated-underline">
                 Team
               </Link>
-              <Link href="#" className="text-sm animated-underline">
+              <Link href="/success-stories" className="text-sm animated-underline">
                 Success Stories
               </Link>
               <Link href="#" className="text-sm animated-underline">
                 Awards
               </Link>
-              <Link href="#" className="text-sm animated-underline">
+              <Link href="/contact" className="text-sm animated-underline">
                 Contact
               </Link>
             </div>

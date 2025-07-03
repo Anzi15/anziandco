@@ -150,6 +150,19 @@ export default function ServicesPage() {
                 ],
                 link: "/services/business-strategy",
               },
+              {
+                icon: <CheckCircle className="h-10 w-10 text-primary" />,
+                title: "SEO | Search Engine Optimization",
+                description: "Improve your website's visibility and ranking on search engines.",
+                features: [
+                  "Keyword research and analysis",
+                  "On-page optimization",
+                  "Technical SEO audits",
+                  "Link building strategies",
+                  "Local SEO services",
+                ],
+                link: "/services/seo",
+              }
             ].map((service, index) => (
               <Card key={index} className="service-card border-none shadow-md hover:shadow-xl transition-all">
                 <CardContent className="p-6">
