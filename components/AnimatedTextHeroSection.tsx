@@ -5,6 +5,7 @@ import { Pacifico } from 'next/font/google'
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { GradientButton } from "./ui/GradeintButton"
+import Link from "next/link"
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -237,6 +238,7 @@ export default function AnimatedTextHeroSection({
               className="flex flex-col sm:flex-row gap-6 justify-center mt-8 px-4 sm:px-0"
             >
               {/* Get Started Button */}
+              <Link href={"/consultation"} className="w-full sm:w-auto">
               <motion.div
                 className="relative w-full sm:w-auto overflow-hidden rounded-full group"
                 whileHover="hover"
@@ -284,8 +286,10 @@ export default function AnimatedTextHeroSection({
                   className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 -translate-x-full group-hover:translate-x-full transition-all duration-1000 ease-in-out"
                 />
               </motion.div>
+              </Link>
 
               {/* Learn More Button */}
+              <Link href={"/services"}>
               <motion.button
                 className="relative w-full sm:w-auto overflow-hidden rounded-full group"
                 whileHover="hover"
@@ -331,6 +335,7 @@ export default function AnimatedTextHeroSection({
                   className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-indigo-200/20 to-transparent opacity-0 group-hover:opacity-30 -translate-x-full group-hover:translate-x-full transition-all duration-1000 ease-in-out"
                 />
               </motion.button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>

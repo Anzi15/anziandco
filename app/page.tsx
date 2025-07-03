@@ -185,7 +185,10 @@ export default function Home() {
               </ul>
 
               <div className="flex flex-col gap-2 min-[400px]:flex-row mt-4 py-4">
-                <GradientButton>Learn More</GradientButton>
+                <Link href={"/consultation"}>
+                
+                <GradientButton>Book an appointment</GradientButton>
+                </Link>
               </div>
             </div>
           </div>

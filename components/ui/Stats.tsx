@@ -174,13 +174,14 @@ export default function StatsSection() {
               whileTap={{ scale: 0.95 }}
             >
               <Link
-                href="#contact"
+                href="/consultation#book-consultation"
                 className="bg-black text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full inline-flex items-center text-sm sm:text-base font-medium hover:bg-gray-800 transition-colors"
               >
                 CONTACT US <ArrowRight className="ml-1 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4" />
               </Link>
             </motion.div>
           </motion.div>
+          
         </div>
       </div>
     </section>

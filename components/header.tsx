@@ -74,7 +74,9 @@ export default function Header() {
 
           {/* Right: CTA Button */}
           <div className="hidden lg:flex flex-1 justify-end">
+<Link href="/consultation" >
             <GradientButton>Get a Free Consultation</GradientButton>
+</Link>
           </div>
 
           {/* Mobile Menu Button */}

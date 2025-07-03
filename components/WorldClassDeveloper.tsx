@@ -88,7 +88,7 @@ export default function ScrollingStarSection() {
           </p>
           <div>
             <Link
-              href="#"
+              href="/get-quote?service=web-development"
               className="inline-flex items-center px-6 py-3 bg-black text-white font-medium rounded-full hover:bg-gray-800 transition-colors"
             >
               GET PROPOSAL
