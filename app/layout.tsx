@@ -36,6 +36,9 @@ export const metadata = {
     "lead generation",
     "business strategy",
   ],
+  other: {
+    "google-adsense-account": "ca-pub-9344372779596610", // ✅ Added here
+  },
 }
 
 export default function RootLayout({
@@ -47,7 +50,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
        <link rel="icon" href="/favicon.ico" sizes="any" />
       <head>
-        <meta name="google-adsense-account" content="ca-pub-9344372779596610">
+     
       <ThemeModeScript />
       </head>
       <body className={cn("min-h-screen bg-background font-sans antialiased ", poppins.variable, lato.variable)}>
@@ -61,9 +64,7 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
-}
-
+  
 
 
 import './globals.css'
