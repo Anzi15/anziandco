@@ -5,7 +5,7 @@ import "@/app/globals.css"
 import { Poppins, Lato } from "next/font/google"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
-import { ThemeModeScript } from "flowbite-react";
+import { ThemeModeScript } from "flowbite-react"
 import { Toaster } from "react-hot-toast"
 
 const poppins = Poppins({
@@ -37,7 +37,7 @@ export const metadata = {
     "business strategy",
   ],
   other: {
-    "google-adsense-account": "ca-pub-9344372779596610", // ✅ Added here
+    "google-adsense-account": "ca-pub-9344372779596610", // ✅ This will render your meta
   },
 }
 
@@ -48,13 +48,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-       <link rel="icon" href="/favicon.ico" sizes="any" />
-      <head>
-     
-      <ThemeModeScript />
-      </head>
-      <body className={cn("min-h-screen bg-background font-sans antialiased ", poppins.variable, lato.variable)}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          poppins.variable,
+          lato.variable
+        )}
+      >
+        {/* Theme script needs to be injected in <body>, not <head> */}
+        <ThemeModeScript />
+
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
           <div className="relative flex min-h-screen flex-col">
             <Header />
             <main className="flex-1">{children}</main>
@@ -64,7 +73,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  
-
-
-import './globals.css'
+  )
+}
