@@ -36,7 +36,6 @@ export const metadata = {
     "lead generation",
     "business strategy",
   ],
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -48,6 +47,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
        <link rel="icon" href="/favicon.ico" sizes="any" />
       <head>
+        <meta name="google-adsense-account" content="ca-pub-9344372779596610">
       <ThemeModeScript />
       </head>
       <body className={cn("min-h-screen bg-background font-sans antialiased ", poppins.variable, lato.variable)}>
